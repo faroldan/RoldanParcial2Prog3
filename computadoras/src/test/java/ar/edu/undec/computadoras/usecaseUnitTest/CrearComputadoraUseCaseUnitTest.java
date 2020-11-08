@@ -1,7 +1,8 @@
 package ar.edu.undec.computadoras.usecaseUnitTest;
 
 import ar.edu.undec.computadoras.core.dominio.Computadora;
-import ar.edu.undec.computadoras.core.exception.ComputadoraExisteException;
+//import ar.edu.undec.computadoras.core.exception.ComputadoraExisteException;
+import ar.edu.undec.computadoras.core.exceptions.ComputadoraExisteException;
 import ar.edu.undec.computadoras.core.repositorio.IComputadoraRepositorio;
 import ar.edu.undec.computadoras.core.usecase.CrearComputadoraUseCase;
 
@@ -37,8 +38,8 @@ public class CrearComputadoraUseCaseUnitTest {
     }
 
     @Test
-    public void crearComputadora_ComputadoraExiste_ComputadoraExisteException(){
-
+    public void crearComputadora_ComputadoraExiste_ComputadoraExisteException() {
+        // model, processor, Disk_capability, disk_type, ram_size, computer_type
         Computadora laComputadora=Computadora.instancia("I310401000GB16GB","Core I3 1040",1000,"SSD",16,"PC");
 
         when(computadoraRepositorio.existeComputadora("I310401000GB16GB")).thenReturn(true);
