@@ -1,22 +1,28 @@
 package ar.edu.undec.jugadores.controllerUnitTest;
 
+import ar.edu.undec.jugadores.controller.CrearJugadorController;
+import ar.edu.undec.jugadores.core.dominio.Jugador;
+import ar.edu.undec.jugadores.core.excepciones.JugadorExisteException;
+import ar.edu.undec.jugadores.core.usecase.input.ICrearJugadorInput;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDate;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 
 @SpringBootTest
-public class CrearJugadorControllerUnitTest {
+public class CrearJugadorControllerUnitTest implements ICrearJugadorInput {
 
 
     @Test
     public void crearJugador_JugadorNoExiste_Devuelve200() throws JugadorExisteException {
-        JugadorDTO elJugador=new JugadorDTO("Lionel Messi",LocalDate.of(1987,6,24),"10",1.7,80.5,"Izquierdo");
+        JugadorDTO elJugador=new JugadorDTO("Lionel Messi", LocalDate.of(1987,6,24),"10",1.7,80.5,"Izquierdo");
         when(crearJugadorInput.crearJugador(any(Jugador.class))).thenReturn(true);
 
         CrearJugadorController crearJugadorController = new CrearJugadorController(crearJugadorInput);
