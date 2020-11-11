@@ -1,5 +1,6 @@
 package ar.edu.undec.jugadores.controllerUnitTest;
 
+import ar.edu.undec.jugadores.config.JugadorDTO;
 import ar.edu.undec.jugadores.controller.CrearJugadorController;
 import ar.edu.undec.jugadores.core.dominio.Jugador;
 import ar.edu.undec.jugadores.core.excepciones.JugadorExisteException;
